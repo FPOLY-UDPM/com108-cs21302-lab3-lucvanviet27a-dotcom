@@ -1,7 +1,7 @@
 /******************************************************************************
- * Họ và tên: [ĐIỀN TÊN TẠI ĐÂY]
- * MSSV:      [ĐIỀN MSSV TẠI ĐÂY]
- * Lớp:       [ĐIỀN LỚP TẠI ĐÂY]
+ * Họ và tên: [LỤC VĂN VIỆT]
+ * MSSV:      [PS49691]
+ * Lớp:       [COM108-CS21302]
  *****************************************************************************/
 
 //  BÀI 2: XÂY DỰNG CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH  
@@ -20,15 +20,53 @@
 // o X2 = (-b – căn(delta))/(2*a)
 
 #include <stdio.h>
+#include <math.h>
 
-int main(){
-    
-    // Khai báo biến
+int main() {
+    float a, b, c;
+    float delta, x1, x2;
 
+    // Nhập hệ số
+    printf("Nhap a: ");
+    scanf("%f", &a);
+    printf("Nhap b: ");
+    scanf("%f", &b);
+    printf("Nhap c: ");
+    scanf("%f", &c);
 
-    // Nhập dữ liệu
+    // Trường hợp a = 0 → phương trình bậc nhất
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0) {
+                printf("Phuong trinh vo so nghiem");
+            } else {
+                printf("Phuong trinh vo nghiem");
+            }
+        } else {
+            float x = -c / b;
+            printf("Phuong trinh bac 1 co nghiem x = %.2f", x);
+        }
+    }
+    // Trường hợp a ≠ 0 → phương trình bậc 2
+    else {
+        delta = b*b - 4*a*c;
 
-
-    // Xử lý, tính toán VÀ Hiển thị kết quả
-
+        if (delta < 0) {
+            printf("Phuong trinh vo nghiem");
+        } 
+        else if (delta == 0) {
+            float x = -b / (2*a);
+            printf("Phuong trinh co nghiem kep x = %.2f", x);
+        } 
+        else {
+            x1 = (-b + sqrt(delta)) / (2*a);
+            x2 = (-b - sqrt(delta)) / (2*a);
+            printf("Phuong trinh co 2 nghiem:\n");
+            printf("x1 = %.2f\n", x1);
+        }
+    }
 }
+
+
+
+
